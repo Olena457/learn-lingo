@@ -1,0 +1,68 @@
+.mainWrapper {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin: 20px 0;
+    padding: 0 32px;
+    display: flex;
+  }
+
+  .mainWrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .mainContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    gap: 24px;
+  }
+
+  .logoContainer {
+    display: flex;
+    gap: 8px;
+  }
+
+  .logoName {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .nav {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .link {
+    font-size: 16px;
+    line-height: 1.25;
+    font-family: 'Roboto', sans-serif;
+
+    color: #121417;
+  }
+
+  .active {
+    color: var(--primary-color, yellow);
+  }
+}
+
+@media (min-width: 1440px) {
+  .header {
+    padding: 0 64px;
+  }
+
+  .mainContainer {
+    gap: 390px;
+  }
+
+  .nav {
+    gap: 28px;
+  }
+}
