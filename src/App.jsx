@@ -51,7 +51,7 @@ function App() {
             element={
               <PrivateRoute
                 redirectTo="/"
-                component={<FavoritesTeachersPage />}
+                element={<FavoritesTeachersPage />}
               />
             }
           />
