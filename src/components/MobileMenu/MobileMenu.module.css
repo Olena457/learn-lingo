@@ -1,0 +1,14 @@
+.wrapperMobile {
+  margin: 20px 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .mobileWrapper {
+    display: none;
+  }
+}
