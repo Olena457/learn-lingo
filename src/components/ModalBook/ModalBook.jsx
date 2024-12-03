@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { bookTeacher } from '../../redux/teachers/operations';
+import { bookTeacher } from '../../redux/teachers/operationsTeachers.js';
 import { toast } from 'react-toastify';
 
 const emailRegExp = /^[\w.-]+@[a-zA-Z]+\.[a-zA-Z]{2,}$/;

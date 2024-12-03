@@ -1,7 +1,7 @@
 import css from './AppBar.module.css';
-import ukraine from './ukraine.svg';
+import ukraine from '../../assets/ukraine.svg';
 import { Link, NavLink } from 'react-router-dom';
-import { AuthNav } from '../AuthNav/AuthNav.jsx';
+import AuthNav from '../AuthNav/AuthNav.jsx';
 import { useSelector } from 'react-redux';
 import clsx from 'clsx';
 import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';

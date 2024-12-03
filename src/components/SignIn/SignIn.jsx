@@ -5,7 +5,7 @@ import css from './SignIn.module.css';
 import { useId, useState } from 'react';
 import clsx from 'clsx';
 import Icon from '../Icon/Icon.jsx';
-import eyeIcon from '/eye.svg';
+import eyeIcon from '../../assets/eye.svg';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/auth/operationsAuth.js';

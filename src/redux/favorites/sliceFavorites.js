@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchFavorites, toggleFavorite } from './operations';
-import { logoutUser } from '../auth/operations';
+import { fetchFavorites, toggleFavorite } from './operationsFavorites.js';
+import { logoutUser } from '../auth/operationsAuth.js';
 
 const handlePending = state => {
   state.loading = true;
