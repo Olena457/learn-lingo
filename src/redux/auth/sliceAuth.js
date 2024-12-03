@@ -20,7 +20,7 @@ const authSlice = createSlice({
     user: null,
     isLoggedIn: false,
     isRefreshing: false,
-    loading: false, // Коригування на 'loading' замість 'Loading'
+    loading: false,
     error: null,
   },
   extraReducers: builder => {
@@ -28,17 +28,18 @@ const authSlice = createSlice({
       .addCase(registerUser.pending, handlePending)
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.isLoggedIn = true; // Коригування на 'isLoggedIn' замість 'isloggedIn'
+        state.isLoggedIn = true;
         state.loading = false;
       })
+
       .addCase(registerUser.rejected, handleRejected)
       .addCase(loginUser.pending, handlePending)
       .addCase(loginUser.fulfilled, (state, action) => {
-        // Коригування на 'fulfilled' замість 'fullfilled'
         state.user = action.payload;
-        state.isLoggedIn = true; // Коригування на 'isLoggedIn' замість 'isloggedIn'
+        state.isLoggedIn = true;
         state.loading = false;
       })
+
       .addCase(loginUser.rejected, handleRejected)
       .addCase(logoutUser.pending, handlePending)
       .addCase(logoutUser.fulfilled, state => {
@@ -47,6 +48,7 @@ const authSlice = createSlice({
         state.error = null;
         state.isLoggedIn = false;
       })
+
       .addCase(logoutUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload || 'Failed to log out';
@@ -54,9 +56,10 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
+
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.isLoggedIn = true; // Коригування на 'isLoggedIn' замість 'isloggedIn'
+        state.isLoggedIn = true;
         state.loading = false;
         state.isRefreshing = false;
       })
@@ -66,4 +69,4 @@ const authSlice = createSlice({
   },
 });
 
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;

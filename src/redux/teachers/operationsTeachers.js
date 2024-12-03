@@ -11,13 +11,14 @@ import {
 import { auth, database } from '../../config/firebase';
 
 // ___________________fetch teachers
+
 export const fetchTeachers = createAsyncThunk(
   'teachers/fetchTeachers',
   async (_, thunkAPI) => {
     try {
       const teachersRef = ref(database, 'teachers');
-      const snapshot = await get(teachersRef);
 
+      const snapshot = await get(teachersRef);
       if (snapshot.exists()) {
         return snapshot.val();
       } else {
@@ -30,6 +31,7 @@ export const fetchTeachers = createAsyncThunk(
 );
 
 // ___________________book teacher
+
 export const bookTeacher = createAsyncThunk(
   'teachers/bookTeacher',
   async ({ fullname, email, phoneNumber, question, teacherID }, thunkAPI) => {
@@ -47,6 +49,7 @@ export const bookTeacher = createAsyncThunk(
         teacherID,
         createdAt: new Date().toISOString(),
       });
+      //   return 'Booking successful';
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -54,6 +57,7 @@ export const bookTeacher = createAsyncThunk(
 );
 
 // ____________________fetch teachers with pagination
+
 export const fetchTeachersPaginated = createAsyncThunk(
   'teachers/fetchTeachersPaginated',
   async ({ lastKey = null }, thunkAPI) => {
@@ -72,6 +76,7 @@ export const fetchTeachersPaginated = createAsyncThunk(
           id,
           ...data[id],
         }));
+
         const result = {
           teachers: teachersArray,
           lastKey: teachersArray[teachersArray.length - 1]?.id || null,

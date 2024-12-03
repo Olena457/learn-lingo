@@ -3,8 +3,8 @@ import { auth, database } from '../../config/firebase.js';
 import { get, ref, set } from 'firebase/database';
 
 // ___________________register user
-export const featchFavorites = createAsyncThunk(
-  'favorites/featchFavorites',
+export const fetchFavorites = createAsyncThunk(
+  'favorites/fetchFavorites',
   async (_, thunkAPI) => {
     try {
       const user = auth.currentUser;
@@ -14,6 +14,7 @@ export const featchFavorites = createAsyncThunk(
       }
       const favoritesRef = ref(database, `user/${user.uid}/favorites`);
       const snapshot = await get(favoritesRef);
+
       if (snapshot.exists()) {
         const favorites = JSON.parse(snapshot.val());
         return favorites ? favorites : [];
@@ -47,6 +48,7 @@ export const toggleFavorite = createAsyncThunk(
         } else {
           favorites.push(teacher);
         }
+
         // _________set to firebase
         await set(
           ref(database, `user/${user.uid}/favorites`),

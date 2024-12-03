@@ -20,6 +20,7 @@ const AuthNav = () => {
 
   const handleSignUpOpen = () => setIsSignUpOpen(true);
   const handleSignInOpen = () => setIsSignInOpen(true);
+
   const handleSignUpClose = () => setIsSignUpOpen(false);
   const handleSignInClose = () => setIsSignInOpen(false);
 

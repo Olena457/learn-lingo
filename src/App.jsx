@@ -1,17 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-import 'modern-normalize';
-import './App.css';
-import Layout from './components/Layout/Layout.jsx';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import 'modern-normalize';
+import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Layout from './components/Layout/Layout.jsx';
 import { auth } from './config/firebase.js';
 import { refreshUser } from './redux/auth/operationsAuth.js';
 import { selectIsRefreshing } from './redux/auth/selectorsAuth.js';
 import { PrivateRoute } from './components/PrivateRoute.jsx';
 import Modal from 'react-modal';
 import Loader from './components/Loader/Loader.jsx';
+
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const TeachersPage = lazy(() =>
   import('./pages/TeachersPage/TeachersPage.jsx')

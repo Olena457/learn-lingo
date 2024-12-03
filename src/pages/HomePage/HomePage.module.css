@@ -1,0 +1,29 @@
+/* .main {
+} */
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.photo {
+  max-width: 320px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+@media (min-width: 768px) {
+  .heroContainer {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .photo {
+    width: 300px;
+    max-width: unset;
+  }
+}
+
+@media (min-width: 1440px) {
+  .photo {
+    width: 568px;
+  }
+}
