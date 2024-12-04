@@ -1,21 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { terser } from '/rollup-plugin-terser';
+import { terser } from '@rollup/plugin-terser';
 
 export default defineConfig({
-  plugins: [
-    react(),
-    terser({
-      compress: {
-        drop_console: true,
-      },
-      format: {
-        comments: false,
-      },
-    }),
-  ],
+  plugins: [react()],
   build: {
-    sourcemap: true,
     outDir: 'dist',
     rollupOptions: {
       output: {
@@ -29,10 +18,10 @@ export default defineConfig({
       plugins: [
         terser({
           compress: {
-            drop_console: true,
+            drop_console: true, // Видаляє консольні логування
           },
           format: {
-            comments: false,
+            comments: false, // Видаляє коментарі
           },
         }),
       ],
