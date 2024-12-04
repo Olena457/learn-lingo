@@ -14,11 +14,11 @@ import Modal from 'react-modal';
 import Loader from './components/Loader/Loader.jsx';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
-const TeachersPage = lazy(() =>
-  import('./pages/TeachersPage/TeachersPage.jsx')
+const TeachersPage = lazy(
+  () => import('./pages/TeachersPage/TeachersPage.jsx'),
 );
-const FavoritesTeachersPage = lazy(() =>
-  import('./pages/FavoritesTeachersPage/FavoritesTeachersPage.jsx')
+const FavoritesTeachersPage = lazy(
+  () => import('./pages/FavoritesTeachersPage/FavoritesTeachersPage.jsx'),
 );
 
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));

@@ -1,71 +1,71 @@
 .display {
-    border: 1.5px dashedvar(--accent-color, yellow);
-    border-radius: 30px;
-    max-width: 320px;
-    margin-bottom: 24px;
+  border: 1.5px dashedvar(--accent-color, yellow);
+  border-radius: 30px;
+  max-width: 320px;
+  margin-bottom: 24px;
 }
 .list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px 12px;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 12px;
+  justify-content: space-between;
+  align-items: center;
 }
 .item {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .numbers {
-    font-weight: 500;
-    font-size: 28px;
-    line-height: 1.14286;
-    letter-spacing: -0.02em;
-    color: var(--black-color, black);
-    text-wrap: nowrap;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.14286;
+  letter-spacing: -0.02em;
+  color: var(--black-color, black);
+  text-wrap: nowrap;
 }
 .text {
-    font-size: 14px;
-    line-height: 1.28571;
-    letter-spacing: -0.02em;
-    color: rgba(18, 20, 23, 0.7);
-    text-wrap: wrap;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.02em;
+  color: rgba(18, 20, 23, 0.7);
+  text-wrap: wrap;
 }
 
 @media (min-width: 768px) {
-    .display {
-        max-width: unset;
-    }
+  .display {
+    max-width: unset;
+  }
 
-    .list {
-        flex-direction: row;
-        align-items: unset;
-        flex-wrap: wrap;
-    }
+  .list {
+    flex-direction: row;
+    align-items: unset;
+    flex-wrap: wrap;
+  }
 
-    .item {
-        flex-direction: row;
-        width: calc((100% - 24px) / 2);
-        justify-content: center;
-    }
+  .item {
+    flex-direction: row;
+    width: calc((100% - 24px) / 2);
+    justify-content: center;
+  }
 }
 
 @media (min-width: 1440px) {
-    .display {
-        width: 1312px;
-        height: 116px;
-    }
+  .display {
+    width: 1312px;
+    height: 116px;
+  }
 
-    .list {
-        gap: 100px;
-        padding: 40px 122px;
-        flex-wrap: nowrap;
-    }
+  .list {
+    gap: 100px;
+    padding: 40px 122px;
+    flex-wrap: nowrap;
+  }
 
-    .item {
-        width: unset;
-        justify-content: unset;
-        align-items: center;
-    }
+  .item {
+    width: unset;
+    justify-content: unset;
+    align-items: center;
+  }
 }

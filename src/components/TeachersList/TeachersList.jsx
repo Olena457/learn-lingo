@@ -14,7 +14,7 @@ const TeachersList = ({ teachers }) => {
 
   const [page, setPage] = useState(1);
   const [visibleTeachers, setVisibleTeachers] = useState(
-    teachers.slice(0, page * PER_PAGE)
+    teachers.slice(0, page * PER_PAGE),
   );
 
   const isVisible = page * PER_PAGE < teachers.length;

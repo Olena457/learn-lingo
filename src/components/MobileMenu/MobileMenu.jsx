@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import css from './MobileMenu.module.css';
-import AuthNav from '../AuthNav/AuthNav.jsx'
+import AuthNav from '../AuthNav/AuthNav.jsx';
 
 import MobileNav from '../MobileNav/MobileNav.jsx';
 const MobileMenu = () => {

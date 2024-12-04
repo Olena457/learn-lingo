@@ -1,64 +1,64 @@
 .loginButton {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    background-color: var(--accent-color, yellow);
-    padding: 14px;
-    border-radius: 12px;
+  background-color: var(--accent-color, yellow);
+  padding: 14px;
+  border-radius: 12px;
 }
 
 .logoutIcon {
-    display: none;
+  display: none;
 }
 
 .loginText {
-    text-wrap: nowrap;
+  text-wrap: nowrap;
 }
 
 .buttonRegister {
-    color: var(--white-color, white);
-    background-color: var(--black-color, black);
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.25;
-    padding: 14px 14px;
-    text-align: center;
-    border-radius: 12px;
-    width: 122px;
+  color: var(--white-color, white);
+  background-color: var(--black-color, black);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 14px 14px;
+  text-align: center;
+  border-radius: 12px;
+  width: 122px;
 }
 
 .unsignWrapper,
 .signWrapper {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 @media (min-width: 768px) {
-    .buttonLogin {
-        display: flex;
-        align-items: center;
-        gap: 8px;
+  .buttonLogin {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-        background-color: transparent;
-        padding: 0;
-        border-radius: 0;
-    }
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
 
-    .logoutIcon {
-        display: block;
-    }
+  .logoutIcon {
+    display: block;
+  }
 
-    .loginText {
-        text-wrap: nowrap;
-    }
+  .loginText {
+    text-wrap: nowrap;
+  }
 
-    .registerButton {
-        width: 166px;
-    }
+  .registerButton {
+    width: 166px;
+  }
 
-    .unsignWrapper,
-    .signWrapper {
-        gap: 16px;
-    }
+  .unsignWrapper,
+  .signWrapper {
+    gap: 16px;
+  }
 }

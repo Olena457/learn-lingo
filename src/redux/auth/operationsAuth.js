@@ -16,7 +16,7 @@ export const registerUser = createAsyncThunk(
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       //___________________get user
@@ -50,7 +50,7 @@ export const registerUser = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue(errMessage);
     }
-  }
+  },
 );
 
 //___________________login user
@@ -62,7 +62,7 @@ export const loginUser = createAsyncThunk(
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
 
       //____________get user info
@@ -103,7 +103,7 @@ export const loginUser = createAsyncThunk(
       }
       return thunkAPI.rejectWithValue(errMessage);
     }
-  }
+  },
 );
 
 //_________logout user
@@ -115,7 +115,7 @@ export const logoutUser = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
-  }
+  },
 );
 
 //_________refresh user
@@ -146,5 +146,5 @@ export const refreshUser = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
-  }
+  },
 );
