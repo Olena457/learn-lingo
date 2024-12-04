@@ -1,6 +1,6 @@
 import css from "./HomePage.module.css";
 import HeroSection from "../../components/HeroSection/HeroSection.jsx";
-import heroLarge from "/hero-large.png";
+import heroLarge from "/icons/hero-large.png";
 import FeaturesDisplay from "./../../components/FeaturesDisplay/FeaturesDisplay.jsx";
 
 const HomePage = () => {

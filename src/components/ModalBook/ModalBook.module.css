@@ -1,80 +1,80 @@
 .container {
-  width: 268px;
-  max-height: 90vh;
-  overflow-y: auto;
+    width: 268px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .title {
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--black-color, black);
-  margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--black-color, black);
+    margin-bottom: 20px;
 }
 
 .text {
-  font-size: 16px;
-  line-height: 1.375;
-  color: rgba(18, 20, 23, 0.8);
-  margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.375;
+    color: rgba(18, 20, 23, 0.8);
+    margin-bottom: 20px;
 }
 
 .imageWrapper {
-  display: flex;
-  gap: 14px;
-  margin-bottom: 40px;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 40px;
 }
 
 .image {
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
 }
 
 .imageTitle {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 1.33333;
-  color: var(--gray-color, gray);
-  margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: var(--gray-color, gray);
+    margin-bottom: 4px;
 }
 
 .imageText {
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--black-color, black);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--black-color, black);
 }
 
 .fieldsetWrapper {
-  margin-bottom: 40px;
-  position: relative;
+    margin-bottom: 40px;
+    position: relative;
 }
 
 .fieldset {
-  border: none;
-  padding: 0;
-  margin: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 .legend {
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 1.33333;
-  color: var(--black-color, black);
-  margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: var(--black-color, black);
+    margin-bottom: 20px;
 }
 
 .radioWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .inputWrapper {
-  display: flex;
-  gap: 8px;
+    display: flex;
+    gap: 8px;
 }
 
 /* .radio {
@@ -82,56 +82,56 @@
 } */
 
 .input {
-  border: 1px solid rgba(18, 20, 23, 0.1);
-  border-radius: 12px;
-  padding: 16px 18px;
-  width: 100%;
+    border: 1px solid rgba(18, 20, 23, 0.1);
+    border-radius: 12px;
+    padding: 16px 18px;
+    width: 100%;
 }
 
 .input::placeholder {
-  font-size: 16px;
-  line-height: 1.375;
-  color: var(--black-color, black);
+    font-size: 16px;
+    line-height: 1.375;
+    color: var(--black-color, black);
 }
 
 .userInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 40px;
 }
 
 .buttonSubmit {
-  border-radius: 12px;
-  width: 268px;
-  height: 60px;
-  background-color: var(--primary-color, gold);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.55556;
-  color: var(--black-color, black);
+    border-radius: 12px;
+    width: 268px;
+    height: 60px;
+    background-color: var(--accent-color, darkgoldenrod);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.55556;
+    color: var(--black-color, black);
 }
 
 .errorText {
-  position: absolute;
-  left: 18px;
-  bottom: -16px;
-  color: red;
-  font-size: 0.8rem;
+    position: absolute;
+    left: 18px;
+    bottom: -16px;
+    color: red;
+    font-size: 0.8rem;
 }
 
 .nameWrapper,
 .emailWrapper,
 .dateWrapper {
-  position: relative;
+    position: relative;
 }
 
 @media (min-width: 768px) {
-  .container {
-    width: 472px;
-  }
+    .container {
+        width: 472px;
+    }
 
-  .buttonSubmit {
-    width: 472px;
-  }
+    .buttonSubmit {
+        width: 472px;
+    }
 }
