@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import css from './TeacherItem.module.css';
-import book from '/icons/book-opened.svg';
+import book from '/icons/book.svg';
 import defaultAvatar from '/icons/user.svg';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import ModalBook from '../ModalBook/ModalBook.jsx';
@@ -94,7 +94,7 @@ const TeacherItem = ({ teacher }) => {
             <button type="button" onClick={handleLike}>
               {isLiked ? (
                 <Icon
-                  id="heart-filled"
+                  id="heart-full"
                   width={26}
                   height={26}
                   className={css.heartIcon}
@@ -102,7 +102,7 @@ const TeacherItem = ({ teacher }) => {
                 />
               ) : (
                 <Icon
-                  id="heart-empty"
+                  id="heart-transparent"
                   width={26}
                   height={26}
                   className={css.heartIcon}

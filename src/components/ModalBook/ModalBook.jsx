@@ -23,7 +23,7 @@ const bookSchema = yup.object({
     .required('Phone number is required!')
     .matches(
       phoneNumberRegExp,
-      'Phone number must follow the format +XX XXXXX XXXXX. May contain hyphens and spaces. ',
+      'Phone number must follow the format +XX XXXXX XXXXX. May contain hyphens and spaces. '
     ),
 });
 
@@ -60,7 +60,7 @@ const ModalBook = ({ modalClose, teacher }) => {
       .then(() =>
         toast.success('Booking request sent!', {
           position: 'top-center',
-        }),
+        })
       )
       .catch(() => {
         toast.error('Error. Try again later.', {
