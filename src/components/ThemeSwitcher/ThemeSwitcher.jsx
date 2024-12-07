@@ -1,4 +1,4 @@
-import { useTheme } from '../../contexts/useTheme';
+import { useTheme } from '../../contexts/useTheme.js';
 import css from './ThemeSwitcher.module.css';
 
 const ThemeSwitcher = () => {

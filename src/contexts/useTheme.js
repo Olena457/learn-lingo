@@ -1,19 +1,4 @@
-import { createContext, useContext, useState } from 'react';
-
-const ThemeContext = createContext();
-
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('');
-
-  const toggleTheme = themeName => {
-    setTheme(themeName);
-  };
-
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className={theme}>{children}</div>
-    </ThemeContext.Provider>
-  );
-};
+import { useContext } from 'react';
+import { ThemeContext } from '../components/ThemeProvider/ThemeProvider.jsx';
 
 export const useTheme = () => useContext(ThemeContext);
