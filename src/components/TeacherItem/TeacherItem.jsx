@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import css from './TeacherItem.module.css';
-import book from '/icons/book.svg';
-import defaultAvatar from '/icons/user.svg';
+import book from '../../icons/book.svg';
+import defaultAvatar from '../../icons/user.svg';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import ModalBook from '../ModalBook/ModalBook.jsx';
 import { toast } from 'react-toastify';

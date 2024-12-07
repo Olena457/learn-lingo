@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import css from './AuthNav.module.css';
-import logoutIcon from '/icons/logout.svg';
+import logoutIcon from '../../icons/logout.svg';
 import ModalWindow from '../ModalWindow/ModalWindow.jsx';
 import SignUp from '../SignUp/SignUp.jsx';
 import SignIn from '../SignIn/SignIn.jsx';

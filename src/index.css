@@ -8,6 +8,22 @@
   --white-color: #fff;
   --lightgray-color: #f8f8f8;
   --gray-color: #8a8a89;
+  --theme-image: url('../src/images/blue.png');
+}
+.theme-yellow {
+  --accent-color: #f4c550;
+  --secondary-color: #fbe9ba;
+  --hover-color: #ffdc86;
+  --background-color: #fffaf0;
+  --theme-image: url('../src/images/yellow.png');
+}
+
+.theme-red {
+  --accent-color: #e0a39a;
+  --secondary-color: #f2c0bd;
+  --hover-color: #f7b3b3;
+  --background-color: #ffefef;
+  --theme-image: url('../src/images/red.png');
 }
 body {
   font-family: 'Roboto', sans-serif;

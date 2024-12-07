@@ -5,9 +5,8 @@ import css from './SignUp.module.css';
 import { useId, useState } from 'react';
 import clsx from 'clsx';
 import Icon from '../Icon/Icon.jsx';
-import eyeIcon from '/icons/eye.svg';
+import eyeIcon from '../../icons/eye.svg';
 import { toast } from 'react-toastify';
-// import { registerUser } from '../../services/authService';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/auth/operationsAuth.js';
 
@@ -57,7 +56,7 @@ const SignUp = ({ modalClose }) => {
       .then(() =>
         toast.success('User registered successfully!', {
           position: 'top-center',
-        }),
+        })
       )
       .catch(errMessage => {
         toast.error(errMessage, {

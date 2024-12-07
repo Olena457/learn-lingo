@@ -1,0 +1,25 @@
+.themeSwitcher {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.circle:hover {
+  transform: scale(1.1);
+}
+.blue {
+  background-color: #9fb7ce;
+}
+.yellow {
+  background-color: #f4c550;
+}
+.red {
+  background-color: #e0a39a;
+}
