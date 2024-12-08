@@ -8,7 +8,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.modalOverlay {
+  background-color: rgba(17, 18, 19, 0.4);
+}
 .modalContainer {
   position: relative;
   background-color: #fff;

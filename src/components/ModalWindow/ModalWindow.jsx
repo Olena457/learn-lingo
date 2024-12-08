@@ -19,11 +19,12 @@ const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
       className={css.modalWindow}
-      css={{
-        overlay: {
-          backgroundColor: 'rgba(17, 18, 19, 0.4)',
-        },
-      }}
+      overlayClassName={css.modalOverlay}
+      // css={{
+      //   overlay: {
+      //     backgroundColor: 'rgba(17, 18, 19, 0.4)',
+      //   },
+      // }}
     >
       <div className={css.modalContainer}>
         <button
