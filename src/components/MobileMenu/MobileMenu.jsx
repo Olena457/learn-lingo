@@ -4,6 +4,7 @@ import css from './MobileMenu.module.css';
 import AuthNav from '../AuthNav/AuthNav.jsx';
 
 import MobileNav from '../MobileNav/MobileNav.jsx';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher.jsx';
 const MobileMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,7 +12,7 @@ const MobileMenu = () => {
   const closeModal = () => setIsOpen(false);
 
   return (
-    <div className={css.wrapperMobile}>
+    <div className={css.mobileWrapper}>
       <div className={css.wrapper}>
         <button type="button" onClick={openModal} className={css.burgerBtn}>
           <Icon
@@ -22,10 +23,12 @@ const MobileMenu = () => {
             fillColor="#121417"
           />
         </button>
-
         <AuthNav />
       </div>
-
+      <div className={css.themeWrapper}>
+        {' '}
+        <ThemeSwitcher />{' '}
+      </div>
       {isOpen && <MobileNav isOpen={isOpen} closeModal={closeModal} />}
     </div>
   );

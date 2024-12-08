@@ -16,26 +16,26 @@ const AppBar = () => {
   return (
     <header className={css.header}>
       <div className={css.mainWrapper}>
-        <div>
-          <Link to="/" className={css.logoContainer}>
-            <img src={ukraine} alt="Flag of Ukraine" className={css.logo} />
-            <span className={css.logoName}>learnLingo</span>
-          </Link>
-          <ThemeSwitcher />
-          <nav className={css.nav}>
-            <NavLink to="/" className={buildActiveClass}>
-              Home
+        {/* <div> */}
+        <Link to="/" className={css.logoContainer}>
+          <img src={ukraine} alt="Flag of Ukraine" className={css.logo} />
+          <span className={css.logoName}>learnLingo</span>
+        </Link>
+        <nav className={css.nav}>
+          <NavLink to="/" className={buildActiveClass}>
+            Home
+          </NavLink>
+          <NavLink to="/teachers" className={buildActiveClass}>
+            Teachers
+          </NavLink>
+          {isLoggedIn && (
+            <NavLink to="/favorites" className={buildActiveClass}>
+              Favorites
             </NavLink>
-            <NavLink to="/teachers" className={buildActiveClass}>
-              Teachers
-            </NavLink>
-            {isLoggedIn && (
-              <NavLink to="/favorites" className={buildActiveClass}>
-                Favorites
-              </NavLink>
-            )}
-          </nav>
-        </div>
+          )}
+        </nav>
+        <ThemeSwitcher />
+        {/* </div> */}
         <AuthNav />
       </div>
       <MobileMenu />

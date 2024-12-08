@@ -44,9 +44,11 @@
 
 @media (min-width: 768px) {
   .section {
-    max-width: unset;
-    width: 380px;
-    padding: 98px 32px;
+    /* max-width: unset; 
+    padding: 98px 32px; */
+    min-height: 450px;
+    min-width: 380px;
+    margin-bottom: 24px;
   }
   .wrapperLink {
     justify-content: unset;

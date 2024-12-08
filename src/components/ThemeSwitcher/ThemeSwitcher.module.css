@@ -1,11 +1,11 @@
 .themeSwitcher {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   align-items: center;
 }
 .circle {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -22,4 +22,22 @@
 }
 .red {
   background-color: #e0a39a;
+}
+@media (min-width: 768px) and (max-width: 1439px) {
+  .circle {
+    width: 18px;
+    height: 18px;
+  }
+  .themeSwitcher {
+    gap: 15px;
+  }
+}
+@media (min-width: 1440px) {
+  .circle {
+    width: 25px;
+    height: 25px;
+  }
+  .themeSwitcher {
+    gap: 10px;
+  }
 }
