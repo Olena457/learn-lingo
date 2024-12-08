@@ -16,7 +16,6 @@ const AppBar = () => {
   return (
     <header className={css.header}>
       <div className={css.mainWrapper}>
-        {/* <div> */}
         <Link to="/" className={css.logoContainer}>
           <img src={ukraine} alt="Flag of Ukraine" className={css.logo} />
           <span className={css.logoName}>learnLingo</span>
@@ -35,7 +34,6 @@ const AppBar = () => {
           )}
         </nav>
         <ThemeSwitcher />
-        {/* </div> */}
         <AuthNav />
       </div>
       <MobileMenu />
