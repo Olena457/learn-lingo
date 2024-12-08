@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import 'modern-normalize';
+
 import './App.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
