@@ -8,7 +8,7 @@ import {
   startAfter,
   limitToFirst,
 } from 'firebase/database';
-import { auth, database } from '../../config/firebase';
+import { auth, database } from '../../config/firebase.js';
 
 // ___________________fetch teachers
 
@@ -27,7 +27,7 @@ export const fetchTeachers = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 // ___________________book teacher
@@ -53,7 +53,7 @@ export const bookTeacher = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
+  }
 );
 
 // ____________________fetch teachers with pagination
@@ -90,5 +90,5 @@ export const fetchTeachersPaginated = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  },
+  }
 );
