@@ -1,3 +1,5 @@
+@import 'modern-normalize/modern-normalize.css';
+
 :root {
   --accent-color: #9fb7ce;
   --secondary-color: #bfd6ea;
