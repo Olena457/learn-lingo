@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   build: {
     sourcemap: true,
-    minify: 'esbuild',
+    minify: 'terser',
     rollupOptions: {
       output: {
         manualChunks(id) {
