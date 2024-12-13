@@ -1,15 +1,17 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import css from './TeacherItem.module.css';
 import book from '../../icons/book.svg';
 import defaultAvatar from '../../icons/user.svg';
-import ModalWindow from '../ModalWindow/ModalWindow.jsx';
-import ModalBook from '../ModalBook/ModalBook.jsx';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 import { selectFavoritesIds } from '../../redux/favorites/selectorsFavorites.js';
 import { toggleFavorite } from '../../redux/favorites/operationsFavorites.js';
+
+const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow.jsx'));
+const ModalBook = lazy(() => import('../ModalBook/ModalBook.jsx'));
+
 const TeacherItem = ({ teacher }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -203,9 +205,14 @@ const TeacherItem = ({ teacher }) => {
         )}
 
         {isBookOpen && (
-          <ModalWindow onCloseModal={handleBookClose} modalIsOpen={isBookOpen}>
-            <ModalBook modalClose={handleBookClose} teacher={teacher} />
-          </ModalWindow>
+          <Suspense fallback={<div>Loading...</div>}>
+            <ModalWindow
+              onCloseModal={handleBookClose}
+              modalIsOpen={isBookOpen}
+            >
+              <ModalBook modalClose={handleBookClose} teacher={teacher} />
+            </ModalWindow>
+          </Suspense>
         )}
       </section>
     </li>
