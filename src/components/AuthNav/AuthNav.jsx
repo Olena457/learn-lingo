@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import css from './AuthNav.module.css';
-import logoutIcon from '../../icons/logout.svg';
-import ModalWindow from '../ModalWindow/ModalWindow.jsx';
-import SignUp from '../SignUp/SignUp.jsx';
-import SignIn from '../SignIn/SignIn.jsx';
 import { useDispatch, useSelector } from 'react-redux';
+import logoutIcon from '../../icons/logout.svg';
 import {
   selectIsLoggedIn,
   selectUser,
 } from '../../redux/auth/selectorsAuth.js';
 import { logoutUser } from '../../redux/auth/operationsAuth.js';
+
+const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow.jsx'));
+const SignUp = lazy(() => import('../SignUp/SignUp.jsx'));
+const SignIn = lazy(() => import('../SignIn/SignIn.jsx'));
 
 const AuthNav = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -67,20 +68,28 @@ const AuthNav = () => {
         </div>
       )}
       {isSignUpOpen && (
-        <ModalWindow
-          onCloseModal={handleSignUpClose}
-          modalIsOpen={isSignUpOpen}
-        >
-          <SignUp modalClose={handleSignUpClose} />
-        </ModalWindow>
+        <Suspense fallback={<div>Loading...</div>}>
+          {' '}
+          <ModalWindow
+            onCloseModal={handleSignUpClose}
+            modalIsOpen={isSignUpOpen}
+          >
+            {' '}
+            <SignUp modalClose={handleSignUpClose} />{' '}
+          </ModalWindow>{' '}
+        </Suspense>
       )}
       {isSignInOpen && (
-        <ModalWindow
-          onCloseModal={handleSignInClose}
-          modalIsOpen={isSignInOpen}
-        >
-          <SignIn modalClose={handleSignInClose} />
-        </ModalWindow>
+        <Suspense fallback={<div>Loading...</div>}>
+          {' '}
+          <ModalWindow
+            onCloseModal={handleSignInClose}
+            modalIsOpen={isSignInOpen}
+          >
+            {' '}
+            <SignIn modalClose={handleSignInClose} />{' '}
+          </ModalWindow>{' '}
+        </Suspense>
       )}
     </div>
   );

@@ -6,9 +6,14 @@ export default defineConfig({
   build: {
     sourcemap: true,
     minify: 'terser',
+    cssCodeSplit: true,
+    chunkSizeWarningLimit: 500, // Збільшили ліміт для більшої гнучкості
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (id.includes('node_modules/react')) {
+            return 'vendor-react';
+          }
           if (id.includes('node_modules')) {
             return 'vendor';
           }
@@ -23,10 +28,10 @@ export default defineConfig({
         assetFileNames: 'assets/[name]-[hash][ext]',
       },
     },
-    chunkSizeWarningLimit: 500,
     terserOptions: {
       compress: {
         drop_console: true,
+        pure_funcs: ['console.log'],
       },
     },
   },
