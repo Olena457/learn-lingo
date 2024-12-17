@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 import Layout from './components/Layout/Layout.jsx';
 import { auth } from './config/firebase.js';
 import { refreshUser } from './redux/auth/operationsAuth.js';
