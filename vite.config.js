@@ -7,7 +7,7 @@ export default defineConfig({
     sourcemap: true,
     minify: 'terser',
     cssCodeSplit: true,
-    chunkSizeWarningLimit: 500, // Збільшили ліміт для більшої гнучкості
+    chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
         manualChunks(id) {
