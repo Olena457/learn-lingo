@@ -42,23 +42,19 @@
 
 // export default ModalWindow;
 
-import Modal from 'react-modal';
-import Icon from '../Icon/Icon.jsx';
 import css from './ModalWindow.module.css';
 import { useEffect } from 'react';
+import Modal from 'react-modal';
+import Icon from '../Icon/Icon.jsx';
 
 const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
   useEffect(() => {
-    if (modalIsOpen) {
-      document.getElementById('root').setAttribute('inert', '');
-    } else {
-      document.getElementById('root').removeAttribute('inert');
-    }
+    document.body.classList.add(css.modalOpen);
 
     return () => {
-      document.getElementById('root').removeAttribute('inert');
+      document.body.classList.remove(css.modalOpen);
     };
-  }, [modalIsOpen]);
+  }, []);
 
   return (
     <Modal

@@ -2,6 +2,14 @@
   overflow: hidden;
 }
 
+.modalContainer {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  padding: 20px;
+}
+
 .modalWindow {
   position: fixed;
   top: 50%;
@@ -11,13 +19,6 @@
 /* .modalOverlay {
   background-color: rgba(17, 18, 19, 0.4);
 } */
-.modalContainer {
-  position: relative;
-  background-color: #fff;
-  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  padding: 20px;
-}
 
 .buttonClose {
   width: 32px;
