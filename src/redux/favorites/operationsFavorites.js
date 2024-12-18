@@ -14,6 +14,11 @@ export const fetchFavorites = createAsyncThunk(
       }
       const favoritesRef = ref(database, `user/${user.uid}/favorites`);
       const snapshot = await get(favoritesRef);
+      // if (snapshot.exists()) {
+      //   const favoritesObject = snapshot.val();
+      //   const favoritesArray = Object.keys(favoritesObject).map(key =>
+      //     ({ id: key, ...favoritesObject[key], }));
+      //   return favoritesArray;
 
       if (snapshot.exists()) {
         const favorites = JSON.parse(snapshot.val());
@@ -24,7 +29,7 @@ export const fetchFavorites = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
-  },
+  }
 );
 
 // ___________________logout user
@@ -52,7 +57,7 @@ export const toggleFavorite = createAsyncThunk(
         // _________set to firebase
         await set(
           ref(database, `user/${user.uid}/favorites`),
-          JSON.stringify(favorites),
+          JSON.stringify(favorites)
         );
         return favorites;
       } else {
@@ -61,5 +66,5 @@ export const toggleFavorite = createAsyncThunk(
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
     }
-  },
+  }
 );
