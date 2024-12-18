@@ -72,6 +72,9 @@ export const fetchTeachersPaginated = createAsyncThunk(
 
       if (snapshot.exists()) {
         const data = snapshot.val();
+
+        console.log('Fetched data from Firebase:', data);
+
         const teachersArray = Object.keys(data).map(id => ({
           id,
           ...data[id],

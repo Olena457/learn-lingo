@@ -1,4 +1,5 @@
 import css from './TeachersPage.module.css';
+// import teachers from '../data/teachers.json';
 import FiltersBar from '../../components/FiltersBar/FiltersBar.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import {

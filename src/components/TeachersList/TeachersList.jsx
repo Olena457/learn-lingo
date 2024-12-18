@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import {
   selectTeachersError,
   selectTeachersLoading,
 } from '../../redux/teachers/selectorsTeachers.js';
 import TeacherItem from '../TeacherItem/TeacherItem.jsx';
 import css from './TeachersList.module.css';
-import { useSelector } from 'react-redux';
 const PER_PAGE = 4;
 
 const TeachersList = ({ teachers }) => {
@@ -14,7 +15,7 @@ const TeachersList = ({ teachers }) => {
 
   const [page, setPage] = useState(1);
   const [visibleTeachers, setVisibleTeachers] = useState(
-    teachers.slice(0, page * PER_PAGE),
+    teachers.slice(0, page * PER_PAGE)
   );
 
   const isVisible = page * PER_PAGE < teachers.length;
