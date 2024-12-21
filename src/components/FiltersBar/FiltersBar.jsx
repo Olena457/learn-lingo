@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import css from './FiltersBar.module.css';
+
 const FiltersBar = () => {
   const languagesId = useId();
   const levelId = useId();

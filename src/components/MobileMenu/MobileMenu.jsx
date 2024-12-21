@@ -21,6 +21,7 @@ const MobileMenu = () => {
             height="32"
             className={css.icon}
             fillColor="#121417"
+            ariaHidden={false}
           />
         </button>
         <AuthNav />

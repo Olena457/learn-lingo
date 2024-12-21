@@ -16,5 +16,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-//  v7_fetcherPersist: true,

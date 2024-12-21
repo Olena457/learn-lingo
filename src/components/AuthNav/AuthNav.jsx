@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import css from './AuthNav.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import logoutIcon from '../../icons/logout.svg';
@@ -8,22 +8,22 @@ import {
 } from '../../redux/auth/selectorsAuth.js';
 import { logoutUser } from '../../redux/auth/operationsAuth.js';
 
-const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow.jsx'));
-const SignUp = lazy(() => import('../SignUp/SignUp.jsx'));
-const SignIn = lazy(() => import('../SignIn/SignIn.jsx'));
-
+import ModalWindow from '../ModalWindow/ModalWindow.jsx';
+import SignUp from '../SignUp/SignUp.jsx';
+import SignIn from '../SignIn/SignIn.jsx';
 const AuthNav = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(null);
 
-  const handleSignUpOpen = () => setIsSignUpOpen(true);
-  const handleSignInOpen = () => setIsSignInOpen(true);
+  const handleModalOpen = modalType => {
+    setIsModalOpen(modalType);
+  };
 
-  const handleSignUpClose = () => setIsSignUpOpen(false);
-  const handleSignInClose = () => setIsSignInOpen(false);
+  const handleModalClose = () => {
+    setIsModalOpen(null);
+  };
 
   return (
     <div className={css.container}>
@@ -31,7 +31,7 @@ const AuthNav = () => {
         <div className={css.unsignWrapper}>
           <button
             type="button"
-            onClick={handleSignInOpen}
+            onClick={() => handleModalOpen('signIn')}
             className={css.buttonLogin}
           >
             <img
@@ -43,7 +43,7 @@ const AuthNav = () => {
           </button>
           <button
             type="button"
-            onClick={handleSignUpOpen}
+            onClick={() => handleModalOpen('signUp')}
             className={css.buttonRegister}
           >
             Registration
@@ -67,29 +67,21 @@ const AuthNav = () => {
           <div className={css.buttonRegister}>{user?.name || 'User'}</div>
         </div>
       )}
-      {isSignUpOpen && (
-        <Suspense fallback={<div>Loading...</div>}>
-          {' '}
-          <ModalWindow
-            onCloseModal={handleSignUpClose}
-            modalIsOpen={isSignUpOpen}
-          >
-            {' '}
-            <SignUp modalClose={handleSignUpClose} />{' '}
-          </ModalWindow>{' '}
-        </Suspense>
+      {isModalOpen === 'signUp' && (
+        <ModalWindow
+          onCloseModal={handleModalClose}
+          modalIsOpen={isModalOpen === 'signUp'}
+        >
+          <SignUp modalClose={handleModalClose} />
+        </ModalWindow>
       )}
-      {isSignInOpen && (
-        <Suspense fallback={<div>Loading...</div>}>
-          {' '}
-          <ModalWindow
-            onCloseModal={handleSignInClose}
-            modalIsOpen={isSignInOpen}
-          >
-            {' '}
-            <SignIn modalClose={handleSignInClose} />{' '}
-          </ModalWindow>{' '}
-        </Suspense>
+      {isModalOpen === 'signIn' && (
+        <ModalWindow
+          onCloseModal={handleModalClose}
+          modalIsOpen={isModalOpen === 'signIn'}
+        >
+          <SignIn modalClose={handleModalClose} />
+        </ModalWindow>
       )}
     </div>
   );

@@ -10,17 +10,24 @@ import {
 } from 'firebase/database';
 import { auth, database } from '../../config/firebase.js';
 
-// ___________________fetch teachers
-
+// __________________fearch teacher2
 export const fetchTeachers = createAsyncThunk(
   'teachers/fetchTeachers',
   async (_, thunkAPI) => {
     try {
       const teachersRef = ref(database, 'teachers');
-
       const snapshot = await get(teachersRef);
       if (snapshot.exists()) {
-        return snapshot.val();
+        const data = snapshot.val();
+        if (typeof data === 'object' && data !== null) {
+          const teachersArray = Object.keys(data).map(id => ({
+            id,
+            ...data[id],
+          }));
+          return teachersArray;
+        } else {
+          return thunkAPI.rejectWithValue('Data format is not correct');
+        }
       } else {
         return thunkAPI.rejectWithValue('No data available');
       }
@@ -49,7 +56,6 @@ export const bookTeacher = createAsyncThunk(
         teacherID,
         createdAt: new Date().toISOString(),
       });
-      //   return 'Booking successful';
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

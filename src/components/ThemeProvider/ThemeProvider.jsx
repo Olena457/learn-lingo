@@ -14,7 +14,7 @@ const ThemeProvider = ({ children }) => {
     if (savedTheme) {
       setTheme(savedTheme);
     }
-  }, []);
+  }, [setTheme]);
   const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
   return (
     <ThemeContext.Provider value={value}>

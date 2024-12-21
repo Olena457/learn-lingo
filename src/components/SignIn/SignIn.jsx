@@ -80,6 +80,7 @@ const SignIn = ({ modalClose }) => {
             id={emailId}
             {...register('email')}
             placeholder="Email"
+            autoComplete="email"
             className={clsx(css.input, css.email)}
           />
           <p className={css.errorText}>{errors.email?.message}</p>
@@ -91,6 +92,7 @@ const SignIn = ({ modalClose }) => {
             type={isPassword ? 'password' : 'text'}
             {...register('password', { required: true })}
             placeholder="Password"
+            autoComplete="current-password"
             className={clsx(css.input, css.password)}
           />
 

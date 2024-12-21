@@ -1,4 +1,6 @@
-import { useState, lazy, Suspense } from 'react';
+// варіант 3 модальні виправлення
+// import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import css from './TeacherItem.module.css';
 import book from '../../icons/book.svg';
@@ -8,9 +10,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsLoggedIn } from '../../redux/auth/selectorsAuth.js';
 import { selectFavoritesIds } from '../../redux/favorites/selectorsFavorites.js';
 import { toggleFavorite } from '../../redux/favorites/operationsFavorites.js';
-
-const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow.jsx'));
-const ModalBook = lazy(() => import('../ModalBook/ModalBook.jsx'));
+import ModalWindow from '../ModalWindow/ModalWindow.jsx';
+import ModalBook from '../ModalBook/ModalBook.jsx';
+// const ModalWindow = lazy(() => import('../ModalWindow/ModalWindow.jsx'));
+// const ModalBook = lazy(() => import('../ModalBook/ModalBook.jsx'));
 
 const TeacherItem = ({ teacher }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -18,13 +21,15 @@ const TeacherItem = ({ teacher }) => {
   const favoriteIndexes = useSelector(selectFavoritesIds);
 
   const [isLiked, setLiked] = useState(favoriteIndexes.includes(teacher.id));
-
-  const [isBookOpen, setBookOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(null); // Використання одного стану для керування модальними вікнами
 
   const dispatch = useDispatch();
 
-  const handleBookOpen = () => setBookOpen(true);
-  const handleBookClose = () => setBookOpen(false);
+  const handleBookOpen = () => {
+    setIsExpanded(false);
+    setIsModalOpen('book');
+  };
+  const handleModalClose = () => setIsModalOpen(null);
 
   const toggleReadMore = () => setIsExpanded(!isExpanded);
 
@@ -35,7 +40,7 @@ const TeacherItem = ({ teacher }) => {
       });
     } else {
       setLiked(!isLiked);
-      dispatch(toggleFavorite(teacher));
+      dispatch(toggleFavorite(teacher.id));
     }
   };
 
@@ -54,6 +59,7 @@ const TeacherItem = ({ teacher }) => {
           height={12}
           className={css.onlineIcon}
           fillColor="#38cd3e"
+          ariaHidden={true}
         />
       </div>
 
@@ -82,17 +88,16 @@ const TeacherItem = ({ teacher }) => {
                   height={16}
                   className={css.starIcon}
                   fillColor="#ffc531"
+                  ariaHidden={true}
                 />
                 <p className={css.lessonsText}>{`Rating: 4.8`}</p>
               </div>
 
-              <p
-                className={css.lessonsText}
-              >{`Price / 1 hour: ${teacher['price_per_hour']}$`}</p>
+              <p className={css.lessonsText}>
+                Price / 1 hour:{' '}
+                <span className={css.price}>{teacher['price_per_hour']}$</span>
+              </p>
             </div>
-
-            {/*  */}
-
             <button type="button" onClick={handleLike}>
               {isLiked ? (
                 <Icon
@@ -100,7 +105,8 @@ const TeacherItem = ({ teacher }) => {
                   width={26}
                   height={26}
                   className={css.heartIcon}
-                  fillColor="#f4c550"
+                  fillColor="#f00b0b"
+                  ariaHidden={false}
                 />
               ) : (
                 <Icon
@@ -109,19 +115,17 @@ const TeacherItem = ({ teacher }) => {
                   height={26}
                   className={css.heartIcon}
                   fillColor="#121417"
+                  ariaHidden={false}
                 />
               )}
             </button>
-            {/*  */}
           </div>
         </div>
 
         <div className={css.teacherInfo}>
           <p className={css.criterion}>
             Speaks:{' '}
-            <span className={css.criterionLang}>
-              {teacher.languages.join(', ')}
-            </span>
+            <span className={css.criterionLang}>{teacher.languages}</span>
           </p>
 
           <p className={css.criterion}>
@@ -131,9 +135,7 @@ const TeacherItem = ({ teacher }) => {
 
           <p className={css.criterion}>
             Conditions:{' '}
-            <span className={css.criterionText}>
-              {teacher.conditions.join(' ')}
-            </span>
+            <span className={css.criterionText}>{teacher.conditions}</span>
           </p>
         </div>
 
@@ -160,12 +162,10 @@ const TeacherItem = ({ teacher }) => {
                       alt="avatar"
                       className={css.reviewAvatar}
                     />
-
                     <div className={css.iconReviewNameWrapper}>
                       <p className={css.reviewName}>
                         {review['reviewer_name']}
                       </p>
-
                       <div className={css.reviewStarWrapper}>
                         <Icon
                           id="star"
@@ -174,7 +174,6 @@ const TeacherItem = ({ teacher }) => {
                           className={css.starIcon}
                           fillColor="#ffc531"
                         />
-
                         {parseInt(review['reviewer_rating']).toFixed(1)}
                       </div>
                     </div>
@@ -187,11 +186,17 @@ const TeacherItem = ({ teacher }) => {
         )}
 
         <ul className={css.levelsList}>
-          {teacher.levels.map((level, id) => (
-            <li key={id} className={css.levelsItem}>
-              #{level}
-            </li>
-          ))}
+          {' '}
+          {typeof teacher.levels === 'string' ? (
+            teacher.levels.split(',').map((level, id) => (
+              <li key={id} className={css.levelsItem}>
+                {' '}
+                #{level.trim()}{' '}
+              </li>
+            ))
+          ) : (
+            <li className={css.levelsItem}>No levels specified</li>
+          )}{' '}
         </ul>
 
         {isExpanded && (
@@ -204,15 +209,13 @@ const TeacherItem = ({ teacher }) => {
           </button>
         )}
 
-        {isBookOpen && (
-          <Suspense fallback={<div>Loading...</div>}>
-            <ModalWindow
-              onCloseModal={handleBookClose}
-              modalIsOpen={isBookOpen}
-            >
-              <ModalBook modalClose={handleBookClose} teacher={teacher} />
-            </ModalWindow>
-          </Suspense>
+        {isModalOpen === 'book' && (
+          <ModalWindow
+            onCloseModal={handleModalClose}
+            modalIsOpen={isModalOpen === 'book'}
+          >
+            <ModalBook modalClose={handleModalClose} teacher={teacher} />
+          </ModalWindow>
         )}
       </section>
     </li>

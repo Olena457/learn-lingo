@@ -1,5 +1,13 @@
 .red {
   font-size: 32px;
   line-height: 1.2;
+  margin-top: 100px;
+  margin-left: 35px;
   color: #ff0000;
+}
+@media (min-width: 768px) {
+  .red {
+    margin-top: 150px;
+    margin-left: 200px;
+  }
 }

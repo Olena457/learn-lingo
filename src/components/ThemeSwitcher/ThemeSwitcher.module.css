@@ -2,6 +2,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+  padding-top: 15px;
 }
 .circle {
   width: 15px;
@@ -29,7 +30,8 @@
     height: 18px;
   }
   .themeSwitcher {
-    gap: 15px;
+    padding-top: 0px;
+    gap: 18px;
   }
 }
 @media (min-width: 1440px) {
@@ -38,6 +40,7 @@
     height: 25px;
   }
   .themeSwitcher {
-    gap: 10px;
+    padding-top: 0px;
+    gap: 20px;
   }
 }
