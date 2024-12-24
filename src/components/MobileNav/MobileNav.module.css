@@ -17,8 +17,27 @@
 }
 .overlay {
   background-color: rgba(17, 18, 19, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
 .list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
   list-style: none;
   padding: 0;
 }
@@ -35,12 +54,26 @@
 
 .closeBtn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 10px;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 300px;
+  height: 100%;
+  background: white;
+  transition: left 0.3s;
+}
+
+.menu.open {
+  left: 0;
 }
 
 .active {

@@ -9,14 +9,25 @@ import { NavLink } from 'react-router-dom';
 
 const MobileNav = ({ isOpen, closeModal }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-
   useEffect(() => {
-    document.body.classList.add(css.modalOpen);
+    if (isOpen) {
+      document.body.classList.add(css.modalOpen);
+    } else {
+      document.body.classList.remove(css.modalOpen);
+    }
 
     return () => {
       document.body.classList.remove(css.modalOpen);
     };
-  }, []);
+  }, [isOpen]);
+
+  // useEffect(() => {
+  //   document.body.classList.add(css.modalOpen);
+
+  //   return () => {
+  //     document.body.classList.remove(css.modalOpen);
+  //   };
+  // }, []);
 
   const buildActiveClass = ({ isActive }) => {
     return clsx(css.link, isActive && css.active);

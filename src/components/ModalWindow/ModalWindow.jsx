@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import Icon from '../Icon/Icon.jsx';
 import css from './ModalWindow.module.css';
@@ -34,32 +33,29 @@ const ModalWindow = ({ modalIsOpen, onCloseModal, children }) => {
     },
   };
 
-  return ReactDOM.createPortal(
-    <Modal
-      isOpen={modalIsOpen}
-      onRequestClose={onCloseModal}
-      shouldCloseOnOverlayClick={true}
-      shouldCloseOnEsc={true}
-      className={css.modalWindow}
-      ariaHideApp={false}
-      style={customStyles}
-      onAfterOpen={() => (document.body.style.overflow = 'hidden')}
-      onAfterClose={() => (document.body.style.overflow = 'unset')}
-    >
-      <div className={css.modalContainer}>
-        <button
-          type="button"
-          onClick={onCloseModal}
-          className={css.buttonClose}
-          aria-label="close modal button"
-        >
-          <Icon id="close" width="32" height="32" ariaHidden={false} />
-        </button>
-        {children}
-      </div>
-    </Modal>,
-    document.getElementById('modal-root')
-  );
+  <Modal
+    isOpen={modalIsOpen}
+    onRequestClose={onCloseModal}
+    shouldCloseOnOverlayClick={true}
+    shouldCloseOnEsc={true}
+    className={css.modalWindow}
+    ariaHideApp={false}
+    style={customStyles}
+    onAfterOpen={() => (document.body.style.overflow = 'hidden')}
+    onAfterClose={() => (document.body.style.overflow = 'unset')}
+  >
+    <div className={css.modalContainer}>
+      <button
+        type="button"
+        onClick={onCloseModal}
+        className={css.buttonClose}
+        aria-label="close modal button"
+      >
+        <Icon id="close" width="32" height="32" ariaHidden={false} />
+      </button>
+      {children}
+    </div>
+  </Modal>;
 };
 
 export default ModalWindow;

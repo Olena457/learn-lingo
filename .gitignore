@@ -45,8 +45,7 @@ dist-ssr
 *.sw?
 
 # Firebase config files
-firebase-config.js
-firebase-config.json
+
 google-services.json
 GoogleService-Info.plist
 tmp.txt

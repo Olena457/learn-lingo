@@ -6,6 +6,9 @@ import { ThemeProvider } from './components/ThemeProvider/ThemeProvider.jsx';
 import App from './App.jsx';
 import store from './redux/store.js';
 import './index.css';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
